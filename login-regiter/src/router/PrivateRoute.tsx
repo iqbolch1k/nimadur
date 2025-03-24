@@ -6,7 +6,7 @@ const PrivateRoute = ({children}: {children:ReactNode}) =>{
     const isAuth = auth()
     console.log("is", isAuth);
     
-    return isAuth ? children : <Navigate to={'/'}/>
+    return isAuth ? children : <Navigate to={'/login'}/>
 }
 
 export default PrivateRoute
