@@ -1,0 +1,9 @@
+.App-card {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #290758fb;
+}
+
+.App-card.light {
+    background-color: white;
+}

@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import './Login.css'
 import React, { useState } from "react";
 import { login } from "../../api/service/LoginService";
+import { useThemeContext } from "../../context/BtnThemeContext";
 
 interface FormDataInterface {
   username: string;
@@ -33,18 +34,18 @@ function Login() {
       await login(formData.username, formData.password)
       navigate('/')
     } catch (error) {
-      alert("login va parol xatoligi")
+      alert("There is an error in the login or password.")
     } finally {
       setLoding(false)
     }
 
   }
-
+  const { theme } = useThemeContext()
   return (
     <div className='login'>
-      <div className='login-pages'>
+      <div className={`login-pages ${theme == 'light' ? 'light' : ''}`}>
         <h1>Login</h1>
-        <div className='login-pages-input'>
+        <div className={`login-pages-input ${theme == 'light' ? 'light' : ''}`}>
           <form onSubmit={handleSubmit} >
             <div>
               <label>Username</label>
@@ -67,12 +68,12 @@ function Login() {
               />
             </div>
             <div>
-              <button type="submit" className='login-btn' disabled={loding}>
+              <button type="submit" className={`login-btn ${theme == 'light' ? 'light' : ''}`} disabled={loding}>
                 {loding ? "Loading..." : "Submit"}
               </button>
             </div>
           </form>
-          <p className='login-register'>Click to register! <b onClick={(registerSubmit)}>Register</b></p>
+          <p className={`login-register ${theme == 'light' ? 'light' : ''}`}>Click to register! <b onClick={(registerSubmit)}>Register</b></p>
         </div>
       </div>
     </div>

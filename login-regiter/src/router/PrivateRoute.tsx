@@ -1,10 +1,12 @@
 import { ReactNode } from "react"
-import { getAccessToken } from "../api/config/tokenConfig"
 import { Navigate } from "react-router-dom"
+import { auth } from "../api/config/auth"
 
 const PrivateRoute = ({children}: {children:ReactNode}) =>{
-    const isAuth = getAccessToken()
-    return isAuth ? children : <Navigate to={'/login'}/>
+    const isAuth = auth()
+    console.log("is", isAuth);
+    
+    return isAuth ? children : <Navigate to={'/'}/>
 }
 
 export default PrivateRoute

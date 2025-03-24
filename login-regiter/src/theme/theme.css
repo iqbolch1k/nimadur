@@ -1,0 +1,12 @@
+.theme-btn {
+    border:none;
+    width: 40px;
+    height: 30px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: gold;
+}
+
+.theme-btn.light {
+    color: #290758fb;
+}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Login.css'
 import { useNavigate } from "react-router-dom";
 import { register } from '../../api/service/LoginService';
+import { useThemeContext } from '../../context/BtnThemeContext';
 interface FormData {
   username: string;
   password: string;
@@ -22,6 +23,15 @@ function Register() {
   }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    if (
+      !formData.username.trim() ||
+      !formData.password.trim() ||
+      !formData.first_name.trim() ||
+      !formData.email.trim()
+    ) {
+      alert("Inputs are empty! Fill them in.");
+      return;
+    }
     setLoading(true)
     try {
       await register(formData.username, formData.password, formData.email, formData.first_name, formData.last_name);
@@ -33,12 +43,13 @@ function Register() {
     }
 
   }
+  const { theme } = useThemeContext()
   return (
     <div>
       <div className='login'>
-        <div className='login-pages'>
+        <div className={`login-pages ${theme == 'light' ? 'light' : ''}`}>
           <h1>Register</h1>
-          <div className='login-pages-input'>
+          <div className={`login-pages-input ${theme == 'light' ? 'light' : ''}`}>
             <form onSubmit={handleSubmit}>
               <div>
                 <label>Last Name</label>
@@ -86,10 +97,10 @@ function Register() {
                   type="password" />
               </div>
               <div>
-                <button className='login-btn' type="submit" disabled={loading}>{loading ? 'Saqlanmoqda...' : 'Login'}</button>
+                <button className={`login-btn ${theme == 'light' ? 'light' : ''}`} type="submit" disabled={loading}>{loading ? 'Saqlanmoqda...' : 'Login'}</button>
               </div>
             </form>
-            <p className='login-register'>Click to login! <b onClick={(registerSubmit)}>Login</b></p>
+            <p className={`login-register ${theme == 'light' ? 'light' : ''}`}>Click to login! <b onClick={(registerSubmit)}>Login</b></p>
           </div>
         </div>
       </div>

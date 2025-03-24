@@ -1,0 +1,42 @@
+.main {
+    padding-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.table-title {
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-weight: 600;
+}
+.table-title.light {
+    color: #000;
+}
+.thead-item>tr th {
+    text-align: left;
+    padding: 7px 20px ;
+    border: 2px solid gray;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #62f40e ;
+}
+.thead-item.light>tr th{
+    color: #2641f0;
+}
+.table tr td {
+    padding: 5px 10px;
+    border: 2px solid gray;
+    margin: 5px;
+    color: white;
+}
+.table.light tr td{
+    color: #000;
+}

@@ -43,6 +43,8 @@
     font-weight: 600;
 }
 
+
+
 .navbar .navbar-navlink nav a:hover {
     color: #2600ff;
 }
@@ -62,7 +64,34 @@
     font-weight: 600;
 }
 
+
 .navbar-btn:hover {
     color: #290758fb;
     background-color: white;
+}
+
+.btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+/* light */
+.navbar-logo.light {
+    color: #000;
+}
+
+.navbar-navlink.light nav a {
+    color: #000;
+}
+
+.navbar-btn.light {
+    border: 2px solid #2641f0;
+    color: #2641f0;
+}
+
+.navbar-btn.light:hover {
+    border: 2px solid #2641f0;
+    background-color: #2641f0;
+    color: white;
 }
